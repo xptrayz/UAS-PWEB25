@@ -90,9 +90,16 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('booking.index') }}">
-                                    <i class="bi bi-calendar-check"></i> Booking Saya
+                                    <i class="bi bi-calendar-check"></i> Booking
                                 </a>
                             </li>
+                            @if(Auth::user()->isAdmin())
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('laporan.index') }}">
+                                        <i class="bi bi-file-earmark-bar-graph"></i> Laporan
+                                    </a>
+                                </li>
+                            @endif
                         @endauth
                     </ul>
 

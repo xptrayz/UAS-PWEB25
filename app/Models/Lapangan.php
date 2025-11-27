@@ -23,6 +23,44 @@ class Lapangan extends Model
         return $this->hasMany(Booking::class);
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    
+    public function getAverageRatingAttribute()
+    {
+        return $this->reviews()->avg('rating') ?? 0;
+    }
+
+    
+    public function getTotalReviewsAttribute()
+    {
+        return $this->reviews()->count();
+    }
+
+    
+    public function getStarsHtmlAttribute()
+    {
+        $rating = round($this->averageRating, 1);
+        $fullStars = floor($rating);
+        $halfStar = ($rating - $fullStars) >= 0.5;
+        $emptyStars = 5 - $fullStars - ($halfStar ? 1 : 0);
+        
+        $html = '';
+        for ($i = 0; $i < $fullStars; $i++) {
+            $html .= '<i class="bi bi-star-fill text-warning"></i>';
+        }
+        if ($halfStar) {
+            $html .= '<i class="bi bi-star-half text-warning"></i>';
+        }
+        for ($i = 0; $i < $emptyStars; $i++) {
+            $html .= '<i class="bi bi-star text-muted"></i>';
+        }
+        return $html;
+    }
+
     public function isAvailable($tanggal, $jamMulai, $jamSelesai)
     {
         return !$this->bookings()

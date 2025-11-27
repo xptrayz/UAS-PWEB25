@@ -35,6 +35,17 @@ class Booking extends Model
         return $this->belongsTo(Lapangan::class);
     }
 
+    public function review()
+    {
+        return $this->hasOne(Review::class);
+    }
+
+    
+    public function canBeReviewed()
+    {
+        return $this->status === 'Selesai' && !$this->review;
+    }
+
     public function getStatusBadgeAttribute()
     {
         $badges = [

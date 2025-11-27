@@ -45,6 +45,19 @@
                                 </span>
                             </div>
                             
+                            
+                            @if($lapangan->totalReviews > 0)
+                                <div class="mb-2">
+                                    <a href="{{ route('reviews.lapangan', $lapangan->id) }}" class="text-decoration-none">
+                                        {!! $lapangan->starsHtml !!}
+                                        <small class="text-muted">
+                                            ({{ number_format($lapangan->averageRating, 1) }}) 
+                                            • {{ $lapangan->totalReviews }} review
+                                        </small>
+                                    </a>
+                                </div>
+                            @endif
+                            
                             <p class="text-muted mb-2">
                                 <i class="bi bi-tag"></i> {{ $lapangan->jenis }}
                             </p>

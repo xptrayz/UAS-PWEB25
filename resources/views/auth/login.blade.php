@@ -67,7 +67,18 @@
                 </div>
             </div>
 
-            
+            <!-- Info Demo Akun
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h6 class="fw-bold mb-2">
+                        <i class="bi bi-info-circle"></i> Demo Akun
+                    </h6>
+                    <small class="text-muted">
+                        <strong>Admin:</strong> admin@futsal.com / password<br>
+                        <strong>Member:</strong> member@futsal.com / password
+                    </small>
+                </div>
+            </div> -->
         </div>
     </div>
 </div>
