@@ -240,7 +240,10 @@
                             </h5>
                             @if($booking->status == 'Menunggu Pembayaran')
                                 <p class="mb-0">
-                                    Silakan lakukan pembayaran dan hubungi admin untuk konfirmasi. 
+                                    Silakan lakukan pembayaran dan hubungi
+                                    <a href="https://wa.me/6281358614349" target="_blank" class="fw-bold text-success">
+                                    WhatsApp Admin
+                                    </a> untuk konfirmasi.
                                     Status booking Anda akan diupdate oleh admin setelah pembayaran dikonfirmasi.
                                 </p>
                             @elseif($booking->status == 'Lunas')
